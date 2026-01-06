@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Perpustakaan - Transaksi</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="perpustakaan.jpg" alt="Logo Perpustakaan">
+                <h1>Aplikasi Perpustakaan Digital</h1>
+            </div>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Beranda</a></li>
+                    <li><a href="transaksi.html" class="active"><i class="fas fa-exchange-alt"></i> Transaksi</a></li>
+                    <li><a href="profil.html"><i class="fas fa-info-circle"></i> Profil</a></li>
+                    <li><a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <h2 class="page-title">Form Transaksi Peminjaman Buku</h2>
+        
+        <div class="transaction-container">
+            
+            <section class="transaction-form">
+                <h3><i class="fas fa-edit"></i> Form Peminjaman Buku</h3>
+                
+                <form id="transactionForm">
+                    <div class="form-group">
+                        <label for="namaPeminjam"><i class="fas fa-user"></i> Nama Peminjam</label>
+                        <input type="text" id="namaPeminjam" placeholder="Masukkan nama lengkap">
+                        <div class="error-message" id="errorNama"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="nim"><i class="fas fa-id-card"></i> NIM / ID Anggota</label>
+                        <input type="text" id="nim" placeholder="Masukkan NIM atau ID anggota">
+                        <div class="error-message" id="errorNim"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="judulBuku"><i class="fas fa-book"></i> Judul Buku</label>
+                        <select id="judulBuku">
+                            <option value="">Pilih buku</option>
+                            <option value="Pemrograman Web">Pemrograman Web</option>
+                            <option value="Struktur Data">Struktur Data</option>
+                            <option value="Basis Data">Basis Data</option>
+                            <option value="Algoritma Pemrograman">Algoritma Pemrograman</option>
+                            <option value="Jaringan Komputer">Jaringan Komputer</option>
+                            <option value="Sistem Operasi">Sistem Operasi</option>
+                        </select>
+                        <div class="error-message" id="errorBuku"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="kategori"><i class="fas fa-tag"></i> Kategori</label>
+                        <select id="kategori">
+                            <option value="">Pilih kategori</option>
+                            <option value="Teknologi">Teknologi</option>
+                            <option value="Sains">Sains</option>
+                            <option value="Fiksi">Fiksi</option>
+                            <option value="Pendidikan">Pendidikan</option>
+                            <option value="Referensi">Referensi</option>
+                        </select>
+                        <div class="error-message" id="errorKategori"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="tanggalPinjam"><i class="fas fa-calendar-alt"></i> Tanggal Pinjam</label>
+                        <input type="date" id="tanggalPinjam">
+                        <div class="error-message" id="errorTanggal"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="lamaPinjam"><i class="fas fa-clock"></i> Lama Pinjam (hari)</label>
+                        <input type="number" id="lamaPinjam" min="1" max="14" value="7">
+                        <div class="error-message" id="errorLama"></div>
+                    </div>
+                    
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-save"></i> Simpan Transaksi
+                    </button>
+                    <button type="reset" class="btn-reset">
+                        <i class="fas fa-redo"></i> Reset Form
+                    </button>
+                </form>
+            </section>
+            
+            <section class="transaction-list">
+                <h3><i class="fas fa-list"></i> Daftar Transaksi Terbaru</h3>
+                <a href="#daftarLengkap" class="lihat-semua">Lihat semua transaksi →</a>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama Peminjam</th>
+                                <th>Judul Buku</th>
+                                <th>Kategori</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Ahmad Rizki</td>
+                                <td>Pemrograman Web</td>
+                                <td>Teknologi</td>
+                                <td><span class="status dipinjam">Dipinjam</span></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Budi Santoso</td>
+                                <td>Struktur Data</td>
+                                <td>Teknologi</td>
+                                <td><span class="status dikembalikan">Dikembalikan</span></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Cici Amelia</td>
+                                <td>Basis Data</td>
+                                <td>Teknologi</td>
+                                <td><span class="status dipinjam">Dipinjam</span></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Dian Pratiwi</td>
+                                <td>Algoritma Pemrograman</td>
+                                <td>Pendidikan</td>
+                                <td><span class="status terlambat">Terlambat</span></td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Eko Prasetyo</td>
+                                <td>Jaringan Komputer</td>
+                                <td>Teknologi</td>
+                                <td><span class="status dipinjam">Dipinjam</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                
+                <div id="daftarLengkap" class="full-list">
+                    <h4><i class="fas fa-history"></i> Riwayat Transaksi Lengkap</h4>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Nama Transaksi</th>
+                                    <th>Jumlah</th>
+                                    <th>Kategori</th>
+                                    <th>Tanggal</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Peminjaman - Pemrograman Web</td>
+                                    <td>1 Buku</td>
+                                    <td>Teknologi</td>
+                                    <td>2024-12-01</td>
+                                    <td><span class="status dipinjam">Dipinjam</span></td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Pengembalian - Struktur Data</td>
+                                    <td>1 Buku</td>
+                                    <td>Teknologi</td>
+                                    <td>2024-11-28</td>
+                                    <td><span class="status dikembalikan">Dikembalikan</span></td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Peminjaman - Basis Data</td>
+                                    <td>1 Buku</td>
+                                    <td>Teknologi</td>
+                                    <td>2024-11-25</td>
+                                    <td><span class="status dipinjam">Dipinjam</span></td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>Peminjaman - Algoritma Pemrograman</td>
+                                    <td>1 Buku</td>
+                                    <td>Pendidikan</td>
+                                    <td>2024-11-20</td>
+                                    <td><span class="status terlambat">Terlambat</span></td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>Peminjaman - Jaringan Komputer</td>
+                                    <td>1 Buku</td>
+                                    <td>Teknologi</td>
+                                    <td>2024-11-18</td>
+                                    <td><span class="status dipinjam">Dipinjam</span></td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>Pengembalian - Sistem Operasi</td>
+                                    <td>1 Buku</td>
+                                    <td>Teknologi</td>
+                                    <td>2024-11-15</td>
+                                    <td><span class="status dikembalikan">Dikembalikan</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>UNIVERSITAS PAMULANG</h3>
+                    <h4>FAKULTAS ILMU KOMPUTER</h4>
+                    <h4>PROGRAM STUDI SISTEM INFORMASI S-1</h4>
+                    <p>Jl. Pusdiklat Raya No 10, Serpong - Tangerang Selatan<br>
+                    Telp. (021) 742 7010, 741 2566</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Kontak</h3>
+                    <p><i class="fas fa-globe"></i> www.sisteminformasi.unpam.ac.id</p>
+                    <p><i class="fas fa-envelope"></i> sistem_informasi@unpam.ac.id</p>
+                    <p><i class="fas fa-phone"></i> (021) 742 7010</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Navigasi Cepat</h3>
+                    <ul>
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="transaksi.html">Transaksi</a></li>
+                        <li><a href="profil.html">Profil Aplikasi</a></li>
+                        <li><a href="login.html">Login Admin</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Aplikasi Perpustakaan Digital - Universitas Pamulang. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
